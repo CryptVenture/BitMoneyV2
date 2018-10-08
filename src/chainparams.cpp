@@ -184,14 +184,10 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0x69ce58136f49e4b752e4a9d932dca99dea3d0e6847f6e685bf595c7709623dca"));
 
 
-        //vSeeds.push_back(CDNSSeedData("149.28.146.108", "149.28.146.108"));
-        //vSeeds.push_back(CDNSSeedData("45.32.44.183", "45.32.44.183"));
-        //vSeeds.push_back(CDNSSeedData("45.32.62.131", "45.32.62.131"));
-        //vSeeds.push_back(CDNSSeedData("80.211.76.242", "80.211.76.242"));
-        //vSeeds.push_back(CDNSSeedData("108.61.165.91", "108.61.165.91"));
-        //vSeeds.push_back(CDNSSeedData("207.148.70.199", "207.148.70.199"));
-        //vSeeds.push_back(CDNSSeedData("198.13.57.99", "198.13.57.99"));
-        //vSeeds.push_back(CDNSSeedData("45.32.13.117", "45.32.13.117"));
+        vSeeds.push_back(CDNSSeedData("95.179.193.119", "95.179.193.119"));
+        vSeeds.push_back(CDNSSeedData("45.32.176.66", "45.32.176.66"));
+        vSeeds.push_back(CDNSSeedData("95.179.197.142", "95.179.197.142"));
+        vSeeds.push_back(CDNSSeedData("95.179.200.18", "95.179.200.18"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 55); // C
@@ -205,11 +201,11 @@ public:
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         fRequireRPCPassword = true;
-        fMiningRequiresPeers = false;
+        fMiningRequiresPeers = true;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
-        fMineBlocksOnDemand = true;
+        fMineBlocksOnDemand = false;
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
