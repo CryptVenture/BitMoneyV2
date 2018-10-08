@@ -60,6 +60,12 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0x000006889bd568a836dd1a31a3f93949eaa24368f6dd98dc31edd44375578c2f"));
+	//(22, uint256("0xf31e381eedb0ed3ed65fcc98cc71f36012bee32e8efd017c4f9fb0620fd35f6b"))
+	//(26, uint256("0x29dd0bd1c59484f290896687b4ffb6a49afa5c498caf61967c69a541f8191557"))
+	//(35, uint256("0xc7aafa648a0f1450157dc93bd4d7448913a85b7448f803b4ab970d91fc2a7da7"))
+	//(52, uint256("0x8e76f462e4e82d1bd21cb72e1ce1567d4ddda2390f26074ffd1f5d9c270e5e50"))
+	//(67, uint256("0x4423cceeb9fd574137a18733416275a70fdf95283cc79ad976ca399aa424a443"))
+	//(88, uint256("0x5b2482eca24caf2a46bb22e0545db7b7037282733faa3a42ec20542509999a64"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
 	1538783565, // * UNIX timestamp of last checkpoint block
@@ -119,7 +125,7 @@ public:
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 30; // BitMoney: 0.5 minutes
-        nTargetSpacingSlowLaunch = 10 * 60;  // BitMoney: 10 minutes (Slow launch - Block 288)
+        nTargetSpacingSlowLaunch = 5 * 60;  // BitMoney: 5 minutes (Slow launch - Block 288)
         nTargetSpacing = 1 * 60;  // BitMoney: 60 Seconds
         nMaturity = 31;
         nMasternodeCountDrift = 20;
@@ -213,7 +219,7 @@ public:
         nPoolMaxTransactions = 3;
         //strSporkKey = "0459eede7626441f7802af2736cb3a4aeb3e1f95070cde39d068a4f16525ee8fdd3c075f29f9e115aeb91952239194aa6ac19765574fed8a0d7f174f2b450e9630";
 		  strSporkKey = "03c4f9d42586766f08a576c1c12bc4341243cd0d38540d88930e758d01bc614a7b";
-        strObfuscationPoolDummyAddress = "CaJAo1A7gPBftYSHywtBN7XRfHTWWQeJm4";
+        strObfuscationPoolDummyAddress = "PXH4xkfoACR8AVAx6hcY6rffKA5469sUfm";
         nStartMasternodePayments = 1532051032 + 6000; //Wed, 25 Jun 2014 20:36:16 GMT
 
         /** Zerocoin */
