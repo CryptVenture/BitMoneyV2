@@ -3711,7 +3711,7 @@ bool CWallet::MultiSend()
     std::vector<COutput> vCoins;
     AvailableCoins(vCoins);
     int stakeSent = 0;
-    int mnSent = 0;F
+    int mnSent = 0;
     BOOST_FOREACH (const COutput& out, vCoins) {
         //need output with precise confirm count - this is how we identify which is the output to send
         if (out.tx->GetDepthInMainChain() != Params().COINBASE_MATURITY() + 1)
