@@ -125,7 +125,7 @@ public:
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 30; // BitMoney: 0.5 minutes
-        nTargetSpacingSlowLaunch = 5 * 60;  // BitMoney: 5 minutes (Slow launch - Block 288)
+        nTargetSpacingSlowLaunch = 10 * 60;  // BitMoney: 10 minutes (Slow launch - Block 288)
         nTargetSpacing = 1 * 60;  // BitMoney: 60 Seconds
         nMaturity = 31;
         nMasternodeCountDrift = 20;
