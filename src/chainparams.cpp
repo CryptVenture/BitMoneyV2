@@ -60,15 +60,15 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0x000006889bd568a836dd1a31a3f93949eaa24368f6dd98dc31edd44375578c2f"))
-	(22, uint256("0x8a35aa6de1c7ea38eba9255f3f9a24c33b99fdf3814d9a2d52909e97e2834150"))
-	(26, uint256("0xfa32c47fb70d68a1e668c9c19f16d93de0a80e1f912f1b1ef5f89a572ccbe36b"))
-	(35, uint256("0x0fe5f36dcd62bf2ce348dadb9857d65ff51a20b6f6fbff943e3117f4fbbf961a"))
-	(52, uint256("0x66f8c9b9d2ef44aef9f97fc8cbade8657b3c5d620de1f09ef2b329d1439f7145"))
-	(67, uint256("0xb05a134042e6331a1024f356c04dc6b7868846942c6633304ce8816324dbb6fa"))
-	(88, uint256("0x99b6a77e4332dc772182a1d887077c8804f1ff15885ede4c59400207e72c03bb"));
+	(22, uint256("0xa1315abd78e130e0f55d67e68eae9d1a8f65534f1943c718dc5f74531600a610"))
+	(26, uint256("0xe4068fd30b6e7e1df187f20c2386d173dbbbb3724579154fd83cb3f15b0b1c50"))
+	(35, uint256("0xefb6727bb41b2800ba6d9cb3693008dbe2e622e2be9cedd6bcfca18df7a2427b"))
+	(52, uint256("0xaea69d99e8f311d42db5b27ed5b6df4ecb0a5427831678ed807547a3d158fe05"))
+	(67, uint256("0xc6b321ebefa755d2d5b0a06c2a21b8c47c2a3a01c685d5c9b69132709481d1e3"))
+	(88, uint256("0x4c90b2b3453dd94eaaf9bde300cd6852da95d1e7304e110418bdb4ba79ba08bc"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-	1539002482, // * UNIX timestamp of last checkpoint block
+	1539039054, // * UNIX timestamp of last checkpoint block
     0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     1440        // * estimated number of transactions per day after checkpoint
@@ -129,14 +129,14 @@ public:
         nTargetSpacing = 1 * 60;  // BitMoney: 60 Seconds
         nMaturity = 31;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 5000000000 * COIN;
+        nMaxMoneyOut = 3000000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 100;
         nModifierUpdateBlock = 999999999;
         nZerocoinStartHeight = 601;
         nAccumulatorStartHeight = 1;
-        nZerocoinStartTime = 1538783565; // 14 - apr - 2018
+        nZerocoinStartTime = 1538783565; // 5 - oct - 2018
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = ~1; //First block that bad serials emerged
