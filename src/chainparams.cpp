@@ -59,16 +59,17 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
 boost::assign::map_list_of
-(0, uint256("0x000006889bd568a836dd1a31a3f93949eaa24368f6dd98dc31edd44375578c2f"));
-	//(22, uint256("0xa1315abd78e130e0f55d67e68eae9d1a8f65534f1943c718dc5f74531600a610"))
-	//(26, uint256("0xe4068fd30b6e7e1df187f20c2386d173dbbbb3724579154fd83cb3f15b0b1c50"))
-	//(35, uint256("0xefb6727bb41b2800ba6d9cb3693008dbe2e622e2be9cedd6bcfca18df7a2427b"))
-	//(52, uint256("0xaea69d99e8f311d42db5b27ed5b6df4ecb0a5427831678ed807547a3d158fe05"))
-	//(67, uint256("0xc6b321ebefa755d2d5b0a06c2a21b8c47c2a3a01c685d5c9b69132709481d1e3"))
-	//(88, uint256("0x4c90b2b3453dd94eaaf9bde300cd6852da95d1e7304e110418bdb4ba79ba08bc"));
+(0, uint256("0x000006889bd568a836dd1a31a3f93949eaa24368f6dd98dc31edd44375578c2f"))
+(22, uint256("0x45b8362f68be8d0948b9f48ffbd2af8598740ec6e1a920e2885bd6453b136a05"))
+(26, uint256("0x3f50d50d8885a7393460f539fa42a4e12268a6efaf399a268709df5d1b08e972"))
+(120, uint256("0xe9aa0316df6bc4020ea4a7161a6d4f2eaac075104d77d2806075364ae8bbc847"))
+(142, uint256("0x3c113e8f036d16afd5096cf2c7522c4cae648bb18887e20fa67b1baf1036b0f4"))
+(198, uint256("0x3bc3c68f21a860c5e835840f2dc0d1b0555170ac9ba38e869c63b4ad3e3740eb"))
+(256, uint256("0xf7b0dab209a9f000c7f25d11fc89f70b2eae368ae400b15c42aab19766d220c6"));
+
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-	1539039054, // * UNIX timestamp of last checkpoint block
+	1539182060, // * UNIX timestamp of last checkpoint block
     0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -127,7 +128,7 @@ public:
         nTargetTimespan = 1 * 30; // BitMoney: 0.5 minutes
         nTargetSpacingSlowLaunch = 10 * 60;  // BitMoney: 10 minutes (Slow launch - Block 288)
         nTargetSpacing = 1 * 60;  // BitMoney: 60 Seconds
-        nMaturity = 31;
+        nMaturity = 19;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 3000000000 * COIN;
 
@@ -136,7 +137,7 @@ public:
         nModifierUpdateBlock = 999999999;
         nZerocoinStartHeight = 601;
         nAccumulatorStartHeight = 1;
-        nZerocoinStartTime = 1538783565; // 5 - oct - 2018
+        nZerocoinStartTime = 1541030400; // 1 - nov - 2018
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = ~1; //First block that bad serials emerged
