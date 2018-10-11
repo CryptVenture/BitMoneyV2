@@ -130,7 +130,7 @@ public:
         nTargetSpacing = 1 * 60;  // BitMoney: 60 Seconds
         nMaturity = 19;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 3000000000 * COIN;
+        nMaxMoneyOut = 70000000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 100;
