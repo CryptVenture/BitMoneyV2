@@ -49,7 +49,7 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 35
 
 #define QAPP_ORG_NAME "BitMoney"
-#define QAPP_ORG_DOMAIN "BitMoney.org"
+#define QAPP_ORG_DOMAIN "BitMoney.ws"
 #define QAPP_APP_NAME_DEFAULT "BitMoney-Qt"
 #define QAPP_APP_NAME_TESTNET "BitMoney-Qt-testnet"
 
