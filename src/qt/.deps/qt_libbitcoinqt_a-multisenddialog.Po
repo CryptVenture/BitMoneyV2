@@ -1406,9 +1406,7 @@ qt/qt_libbitcoinqt_a-multisenddialog.o: qt/multisenddialog.cpp \
  wallet.h /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 
 /usr/include/stdc-predef.h:
 
@@ -4693,7 +4691,3 @@ wallet.h:
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h:

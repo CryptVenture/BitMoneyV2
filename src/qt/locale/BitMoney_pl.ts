@@ -583,7 +583,7 @@
     </message>
     <message>
         <source>Open a BitMoney: URI or payment request</source>
-        <translation>OtwórzsndX: URI i żądanie zapłaty</translation>
+        <translation>OtwórzBITX: URI i żądanie zapłaty</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>

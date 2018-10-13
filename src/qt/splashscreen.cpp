@@ -26,7 +26,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
 {
     // set reference point, paddings
     int paddingLeft = 14;
-    int paddingTop = 470;
+    int paddingTop = 455;
     int titleVersionVSpace = 17;
     int titleCopyrightVSpace = 32;
 
@@ -34,7 +34,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
 
     // define text to place
     QString titleText = tr("BitMoney Core");
-    QString versionText = QString(tr("Version %1")).arg(QString::fromStdString(FormatFullVersion()));
+    QString versionText = QString(tr("Version v2.1.1.0")).arg(QString::fromStdString(FormatFullVersion()));
     QString copyrightTextBtc = QChar(0xA9) + QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers"));
     QString copyrightTextDash = QChar(0xA9) + QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Dash Core developers"));
     QString copyrightTextPIVX = QChar(0xA9) + QString(" 2015-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The PIVX Core developers"));
@@ -47,7 +47,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     pixmap = networkStyle->getSplashImage();
 
     QPainter pixPaint(&pixmap);
-    pixPaint.setPen(QColor(100, 100, 100));
+    pixPaint.setPen(QColor(158, 28, 38));
 
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 28 * fontFactor));
@@ -114,7 +114,7 @@ static void InitMessage(SplashScreen* splash, const std::string& message)
         Qt::QueuedConnection,
         Q_ARG(QString, QString::fromStdString(message)),
         Q_ARG(int, Qt::AlignBottom | Qt::AlignHCenter),
-        Q_ARG(QColor, QColor(100, 100, 100)));
+        Q_ARG(QColor, QColor(255, 255, 255)));
 }
 
 static void ShowProgress(SplashScreen* splash, const std::string& title, int nProgress)

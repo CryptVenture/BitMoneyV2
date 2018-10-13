@@ -31,13 +31,13 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
     ui->setupUi(this);
 
     // "Spending 999999 zBIT ought to be enough for anybody." - Bill Gates, 2017
-    ui->zsndpayAmount->setValidator( new QDoubleValidator(0.0, 21000000.0, 20, this) );
+    ui->zBITpayAmount->setValidator( new QDoubleValidator(0.0, 21000000.0, 20, this) );
     ui->labelMintAmountValue->setValidator( new QIntValidator(0, 999999, this) );
 
     // Default texts for (mini-) coincontrol
     ui->labelCoinControlQuantity->setText (tr("Coins automatically selected"));
     ui->labelCoinControlAmount->setText (tr("Coins automatically selected"));
-    ui->labelzsndSyncStatus->setText("(" + tr("out of sync") + ")");
+    ui->labelzBITSyncStatus->setText("(" + tr("out of sync") + ")");
 
     // Sunken frame for minting messages
     ui->TEMintStatus->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
@@ -94,11 +94,11 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
 
     //temporary disable for maintenance
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
-        ui->pushButtonMintzsnd->setEnabled(false);
-        ui->pushButtonMintzsnd->setToolTip(tr("zBIT is currently disabled due to maintenance."));
+        ui->pushButtonMintzBIT->setEnabled(false);
+        ui->pushButtonMintzBIT->setToolTip(tr("zBIT is currently disabled due to maintenance."));
 
-        ui->pushButtonSpendzsnd->setEnabled(false);
-        ui->pushButtonSpendzsnd->setToolTip(tr("zBIT is currently disabled due to maintenance."));
+        ui->pushButtonSpendzBIT->setEnabled(false);
+        ui->pushButtonSpendzBIT->setToolTip(tr("zBIT is currently disabled due to maintenance."));
     }
 }
 
@@ -137,11 +137,11 @@ void PrivacyDialog::on_addressBookButton_clicked()
     dlg.setModel(walletModel->getAddressTableModel());
     if (dlg.exec()) {
         ui->payTo->setText(dlg.getReturnValue());
-        ui->zsndpayAmount->setFocus();
+        ui->zBITpayAmount->setFocus();
     }
 }
 
-void PrivacyDialog::on_pushButtonMintzsnd_clicked()
+void PrivacyDialog::on_pushButtonMintzBIT_clicked()
 {
     if (!walletModel || !walletModel->getOptionsModel())
         return;
@@ -253,7 +253,7 @@ void PrivacyDialog::on_pushButtonSpentReset_clicked()
     return;
 }
 
-void PrivacyDialog::on_pushButtonSpendzsnd_clicked()
+void PrivacyDialog::on_pushButtonSpendzBIT_clicked()
 {
 
     if (!walletModel || !walletModel->getOptionsModel() || !pwalletMain)
@@ -274,23 +274,23 @@ void PrivacyDialog::on_pushButtonSpendzsnd_clicked()
             return;
         }
         // Wallet is unlocked now, sedn zBIT
-        sendzsnd();
+        sendzBIT();
         return;
     }
     // Wallet already unlocked or not encrypted at all, send zBIT
-    sendzsnd();
+    sendzBIT();
 }
 
 void PrivacyDialog::on_pushButtonZBitMoneyControl_clicked()
 {
-    ZBitMoneyControlDialog* zsndControl = new ZBitMoneyControlDialog(this);
-    zsndControl->setModel(walletModel);
-    zsndControl->exec();
+    ZBitMoneyControlDialog* zBITControl = new ZBitMoneyControlDialog(this);
+    zBITControl->setModel(walletModel);
+    zBITControl->exec();
 }
 
 void PrivacyDialog::setZBitMoneyControlLabels(int64_t nAmount, int nQuantity)
 {
-    ui->labelzsndSelected_int->setText(QString::number(nAmount));
+    ui->labelzBITSelected_int->setText(QString::number(nAmount));
     ui->labelQuantitySelected_int->setText(QString::number(nQuantity));
 }
 
@@ -299,7 +299,7 @@ static inline int64_t roundint64(double d)
     return (int64_t)(d > 0 ? d + 0.5 : d - 0.5);
 }
 
-void PrivacyDialog::sendzsnd()
+void PrivacyDialog::sendzBIT()
 {
     QSettings settings;
 
@@ -317,13 +317,13 @@ void PrivacyDialog::sendzsnd()
     }
 
     // Double is allowed now
-    double dAmount = ui->zsndpayAmount->text().toDouble();
+    double dAmount = ui->zBITpayAmount->text().toDouble();
     CAmount nAmount = roundint64(dAmount* COIN);
 
     // Check amount validity
     if (!MoneyRange(nAmount) || nAmount <= 0.0) {
         QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Invalid Send Amount"), QMessageBox::Ok, QMessageBox::Ok);
-        ui->zsndpayAmount->setFocus();
+        ui->zBITpayAmount->setFocus();
         return;
     }
 
@@ -351,7 +351,7 @@ void PrivacyDialog::sendzsnd()
 
         if (retval != QMessageBox::Yes) {
             // Sending canceled
-            ui->zsndpayAmount->setFocus();
+            ui->zBITpayAmount->setFocus();
             return;
         }
     }
@@ -429,7 +429,7 @@ void PrivacyDialog::sendzsnd()
             QMessageBox::warning(this, tr("Spend Zerocoin"), receipt.GetStatusMessage().c_str(), QMessageBox::Ok, QMessageBox::Ok);
             ui->TEMintStatus->setPlainText(tr("Spend Zerocoin failed with status = ") +QString::number(receipt.GetStatus(), 10) + "\n" + "Message: " + QString::fromStdString(receipt.GetStatusMessage()));
         }
-        ui->zsndpayAmount->setFocus();
+        ui->zBITpayAmount->setFocus();
         ui->TEMintStatus->repaint();
         return;
     }
@@ -472,7 +472,7 @@ void PrivacyDialog::sendzsnd()
     strReturn += strStats;
 
     // Clear amount to avoid double spending when accidentally clicking twice
-    ui->zsndpayAmount->setText ("0");
+    ui->zBITpayAmount->setText ("0");
 
     ui->TEMintStatus->setPlainText(strReturn);
     ui->TEMintStatus->repaint();
@@ -656,7 +656,7 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
 
     ui->labelzAvailableAmount->setText(QString::number(zerocoinBalance/COIN) + QString(" zBIT "));
     ui->labelzAvailableAmount_2->setText(QString::number(matureZerocoinBalance/COIN) + QString(" zBIT "));
-    ui->labelzsndAmountValue->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, balance - immatureBalance - nLockedBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelzBITAmountValue->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, balance - immatureBalance - nLockedBalance, false, BitcoinUnits::separatorAlways));
 }
 
 void PrivacyDialog::updateDisplayUnit()
@@ -672,7 +672,7 @@ void PrivacyDialog::updateDisplayUnit()
 
 void PrivacyDialog::showOutOfSyncWarning(bool fShow)
 {
-    ui->labelzsndSyncStatus->setVisible(fShow);
+    ui->labelzBITSyncStatus->setVisible(fShow);
 }
 
 void PrivacyDialog::keyPressEvent(QKeyEvent* event)

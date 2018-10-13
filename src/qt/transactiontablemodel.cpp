@@ -360,7 +360,7 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
         return tr("Spent zBIT");
     case TransactionRecord::RecvFromZerocoinSpend:
         return tr("Received BitMoney from zBIT");
-    case TransactionRecord::ZerocoinSpend_Change_zsnd:
+    case TransactionRecord::ZerocoinSpend_Change_zBIT:
         return tr("Minted Change as zBIT from zBIT Spend");
     case TransactionRecord::ZerocoinSpend_FromMe:
         return tr("Converted zBIT to BitMoney");
@@ -417,7 +417,7 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord* wtx, b
     case TransactionRecord::SendToOther:
         return QString::fromStdString(wtx->address) + watchAddress;
     case TransactionRecord::ZerocoinMint:
-    case TransactionRecord::ZerocoinSpend_Change_zsnd:
+    case TransactionRecord::ZerocoinSpend_Change_zBIT:
         return tr("zBIT Accumulator");
     case TransactionRecord::SendToSelf:
     default:

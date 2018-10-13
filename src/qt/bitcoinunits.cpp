@@ -20,8 +20,8 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
     unitlist.append(BitMoney);
-    unitlist.append(msnd);
-    unitlist.append(usnd);
+    unitlist.append(mBIT);
+    unitlist.append(uBIT);
     return unitlist;
 }
 
@@ -29,8 +29,8 @@ bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
     case BitMoney:
-    case msnd:
-    case usnd:
+    case mBIT:
+    case uBIT:
         return true;
     default:
         return false;
@@ -41,11 +41,11 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case BitMoney:
-        return QString("BIT");
-    case msnd:
-        return QString("mBIT");
-    case usnd:
-        return QString::fromUtf8("μBIT");
+        return QString("ragna");
+    case mBIT:
+        return QString("mragna");
+    case uBIT:
+        return QString::fromUtf8("uragna");
     default:
         return QString("???");
     }
@@ -57,9 +57,9 @@ QString BitcoinUnits::name(int unit)
         switch (unit) {
         case BitMoney:
             return QString("BIT");
-        case msnd:
+        case mBIT:
             return QString("mBIT");
-        case usnd:
+        case uBIT:
             return QString::fromUtf8("μBIT");
         default:
             return QString("???");
@@ -67,11 +67,11 @@ QString BitcoinUnits::name(int unit)
     } else {
         switch (unit) {
         case BitMoney:
-            return QString("tsno");
-        case msnd:
-            return QString("mtsno");
-        case usnd:
-            return QString::fromUtf8("μtsno");
+            return QString("tBIT");
+        case mBIT:
+            return QString("mtBIT");
+        case uBIT:
+            return QString::fromUtf8("μtBIT");
         default:
             return QString("???");
         }
@@ -84,9 +84,9 @@ QString BitcoinUnits::description(int unit)
         switch (unit) {
         case BitMoney:
             return QString("BitMoney");
-        case msnd:
+        case mBIT:
             return QString("Milli-BitMoney (1 / 1" THIN_SP_UTF8 "000)");
-        case usnd:
+        case uBIT:
             return QString("Micro-BitMoney (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
@@ -94,11 +94,11 @@ QString BitcoinUnits::description(int unit)
     } else {
         switch (unit) {
         case BitMoney:
-            return QString("Testsnds");
-        case msnd:
-            return QString("Milli-Testsnd (1 / 1" THIN_SP_UTF8 "000)");
-        case usnd:
-            return QString("Micro-Testsnd (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("TestBITs");
+        case mBIT:
+            return QString("Milli-TestBIT (1 / 1" THIN_SP_UTF8 "000)");
+        case uBIT:
+            return QString("Micro-TestBIT (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -110,9 +110,9 @@ qint64 BitcoinUnits::factor(int unit)
     switch (unit) {
     case BitMoney:
         return 100000000;
-    case msnd:
+    case mBIT:
         return 100000;
-    case usnd:
+    case uBIT:
         return 100;
     default:
         return 100000000;
@@ -124,9 +124,9 @@ int BitcoinUnits::decimals(int unit)
     switch (unit) {
     case BitMoney:
         return 8;
-    case msnd:
+    case mBIT:
         return 5;
-    case usnd:
+    case uBIT:
         return 2;
     default:
         return 0;

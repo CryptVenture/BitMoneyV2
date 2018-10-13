@@ -1,2 +1,0 @@
-qt/qt_libbitcoinqt_a-qrc_BitMoney_locale.o: \
- qt/qrc_BitMoney_locale.cpp

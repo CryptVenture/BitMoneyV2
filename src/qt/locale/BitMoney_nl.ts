@@ -4560,8 +4560,8 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "BitMoney Alert" admin@foo.com
         <translation>Je moet een masternodeprivkey opgeven in de configuratie. Raadpleeg de documentatie voor hulp.</translation>
     </message>
     <message>
-        <source>(49444 could be used only on mainnet)</source>
-        <translation>(49444 kan alleen op mainnet worden gebruikt)</translation>
+        <source>(8853 could be used only on mainnet)</source>
+        <translation>(8853 kan alleen op mainnet worden gebruikt)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4572,8 +4572,8 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "BitMoney Alert" admin@foo.com
         <translation>(standaard: 1)</translation>
     </message>
     <message>
-        <source>(must be 49444 for mainnet)</source>
-        <translation>(moet 49444 voor mainnet zijn)</translation>
+        <source>(must be 8853 for mainnet)</source>
+        <translation>(moet 8853 voor mainnet zijn)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

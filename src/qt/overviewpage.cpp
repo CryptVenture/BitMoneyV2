@@ -1,8 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The savenode developers
-// Copyright (c) 2018 The BitMoney(Phoenix) developers
+// Copyright (c) 2017 The BitMoney developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -152,7 +151,7 @@ OverviewPage::~OverviewPage()
     delete ui;
 }
 
-void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBalance, QString& sBitMoneyPercentage, QString& szsndPercentage)
+void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBalance, QString& sBitMoneyPercentage, QString& szBITPercentage)
 {
     int nPrecision = 2;
     double dzPercentage = 0.0;
@@ -171,7 +170,7 @@ void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBala
 
     double dPercentage = 100.0 - dzPercentage;
     
-    szsndPercentage = "(" + QLocale(QLocale::system()).toString(dzPercentage, 'f', nPrecision) + " %)";
+    szBITPercentage = "(" + QLocale(QLocale::system()).toString(dzPercentage, 'f', nPrecision) + " %)";
     sBitMoneyPercentage = "(" + QLocale(QLocale::system()).toString(dPercentage, 'f', nPrecision) + " %)";
     
 }
@@ -225,7 +224,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelTotalz->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nTotalBalance + zerocoinBalance, false, BitcoinUnits::separatorAlways));
     ui->labelUnLockedBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nUnlockedBalance, false, BitcoinUnits::separatorAlways));
     ui->labelBitMoneyPercent->setText(sPercentage);
-    ui->labelzsndPercent->setText(szPercentage);
+    ui->labelzBITPercent->setText(szPercentage);
 
     // Adjust bubble-help according to AutoMint settings
     QString automintHelp = tr("Current percentage of zBIT.\nIf AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).\n");
@@ -238,7 +237,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     else {
         automintHelp += tr("AutoMint is currently disabled.\nTo enable AutoMint add 'enablezeromint=1' in BitMoney.conf");
     }
-    ui->labelzsndPercent->setToolTip(automintHelp);
+    ui->labelzBITPercent->setToolTip(automintHelp);
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
